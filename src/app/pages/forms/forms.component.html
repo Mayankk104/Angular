@@ -1,0 +1,45 @@
+<form #tdForm="ngForm" class="form" (ngSubmit)="onSubmit(tdForm)">
+    <h1>The Form</h1>
+    <input type="text" name="username" ngModel #username="ngModel" required placeholder="username" />
+
+    <div ngModelGroup="passwords" #passwords="ngModelGroup" appMatchPassword>
+        <input type="password" name="password" #password="ngModel" ngModel placeholder="password" appPasswprdPattern />
+        <input type="password" name="confirmPassword" ngModel placeholder="confirm password" />
+    </div>
+
+    <select name="question" #question="ngModel" ngModel required>
+        <option value="" selected disabled>secret question</option>
+        <option [value]="question" *ngFor="let question of questions">
+            {{ question }}
+        </option>
+    </select>
+
+    <textarea name="answer" required ngModel placeholder="Answer here..."></textarea>
+
+    <div class="gender">
+        <span>Gender : </span>
+        <label for="male">male</label>
+        <input type="radio" name="gender" ngModel value="male" id="male" required />
+        <label for="female">female</label>
+        <input type="radio" name="gender" ngModel value="female" />
+    </div>
+
+    <div class="vehicle" ngModelGroup="vehicle">
+        <span>Vehicler : </span>
+        <label for="car">car</label>
+        <input type="checkbox" ngModel name="car" />
+
+        <label for="bike">bike</label>
+        <input type="checkbox" ngModel name="bike" />
+
+        <label for="boat">boat</label>
+        <input type="checkbox" ngModel name="boat" />
+    </div>
+
+    <button class="btn" [disabled]="tdForm.invalid">sumbit</button>
+    <button class="btn" (click)="tdForm.reset()">reset</button>
+</form>
+
+<pre>
+    {{ tdForm.value | json }}
+</pre>

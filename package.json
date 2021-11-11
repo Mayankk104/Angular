@@ -1,6 +1,7 @@
 {
   "name": "angular",
   "version": "0.0.0",
+  "description": "It is a common repo to have all angular concept",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

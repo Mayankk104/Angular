@@ -1,0 +1,52 @@
+.form {
+  width: 98%;
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 2rem;
+}
+
+.btn {
+  border: 1px solid black;
+  padding: 0.2rem 0.3rem;
+  border-radius: 3px;
+  background-color: transparent;
+  transition: 0.2s;
+  margin-top: 0.5rem;
+
+  &:hover {
+    background-color: black;
+    color: white;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: transparent;
+    border: 1px solid gray;
+    color: gray;
+  }
+}
+
+.input-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin: 0.5rem auto;
+  flex-direction: column;
+}
+
+.input {
+  padding: 0.2rem 0.25rem;
+}
+
+.container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

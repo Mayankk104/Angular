@@ -1,0 +1,13 @@
+<div class="container">
+    <form class="form" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+        <div class="input-container">
+            <label for="email">Email</label>
+            <input id="email" type="email" name="email" ngModel class="input" email />
+        </div>
+        <div class="input-container">
+            <label for="email">Password</label>
+            <input type="password" name="password" ngModel class="input" minlength="6" />
+        </div>
+        <button class="btn btn__primary" (click)="(onSubmit)" [disabled]="!loginForm.valid">Submit</button>
+    </form>
+</div>

@@ -1,0 +1,24 @@
+<div class="container">
+    <form class="form" #signupForm="ngForm" (ngSubmit)="onSubmit(signupForm)">
+        <div class="input-container">
+            <label for="email">Email</label>
+            <input id="email" type="email" name="email" ngModel class="input" email />
+        </div>
+        <div class="input-container">
+            <label for="name">Name</label>
+            <input id="name" type="text" name="name" ngModel class="input" />
+        </div>
+
+        <div class="passwords" ngModelGroup="passwords" appMatchPassword>
+            <div class="input-container">
+                <label for="password">Password</label>
+                <input type="password" name="password" ngModel class="input" id="password" appPasswprdPattern #password="ngModel" />
+            </div>
+            <div class="input-container">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" name="confirmPassword" ngModel class="input" id="confirm-passwor" />
+            </div>
+        </div>
+        <button class="btn btn__primary" (click)="(onSubmit)" [disabled]="!signupForm.valid">Submit</button>
+    </form>
+</div>

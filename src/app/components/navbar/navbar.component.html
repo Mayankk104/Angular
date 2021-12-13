@@ -1,0 +1,16 @@
+<nav class="navbar">
+    <ul class="navbar-list">
+        <li class="navbar-list__item" *ngIf="!isLoggedIn">
+            <a routerLink="auth/signin">Sign in</a>
+        </li>
+        <li class="navbar-list__item" *ngIf="!isLoggedIn">
+            <a routerLink="auth/signup">Sign up</a>
+        </li>
+        <li class="navbar-list__item" *ngIf="isLoggedIn">
+            <a routerLink="/tasks">Tasks</a>
+        </li>
+        <li class="navbar-list__item" *ngIf="isLoggedIn">
+            <a (click)="logout()">Logout</a>
+        </li>
+    </ul>
+</nav>

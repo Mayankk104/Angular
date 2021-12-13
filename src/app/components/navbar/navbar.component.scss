@@ -1,0 +1,26 @@
+.navbar {
+  position: fixed;
+  top: 2vh;
+  left: 50%;
+  border: 1px solid black;
+  display: flex;
+  width: 90%;
+  padding: 1rem;
+  transform: translateX(-50%);
+  border-radius: 5px;
+
+  &-list {
+    display: flex;
+    list-style: none;
+
+    &__item {
+      margin: 0rem 1rem;
+
+      & a {
+        text-decoration: none;
+        color: #555;
+        cursor: pointer;
+      }
+    }
+  }
+}

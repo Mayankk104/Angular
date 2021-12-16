@@ -6,9 +6,15 @@
         <li class="navbar-list__item" *ngIf="!isLoggedIn">
             <a routerLink="auth/signup">Sign up</a>
         </li>
+        <li class="navbar-list__item">
+            <a>{{ user?.name ? "Hi, " : " " }}{{ user?.name || "" }}</a>
+        </li>
         <li class="navbar-list__item" *ngIf="isLoggedIn">
             <a routerLink="/tasks">Tasks</a>
         </li>
+    </ul>
+
+    <ul class="navbar-list">
         <li class="navbar-list__item" *ngIf="isLoggedIn">
             <a (click)="logout()">Logout</a>
         </li>

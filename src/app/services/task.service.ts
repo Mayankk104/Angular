@@ -25,4 +25,8 @@ export class TaskService {
     return this._http.delete(`${this.host}/${_id}`);
   }
 
+  updateTask(_id: string, description: string) {
+    return this._http.patch(`${this.host}/${_id}`, { description });
+  }
+
 }

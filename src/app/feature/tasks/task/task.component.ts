@@ -14,6 +14,9 @@ export class TaskComponent implements OnInit {
 
   ngOnInit(): void {
     this._tasks.getTasks()?.subscribe(tasks => {
+      tasks.forEach(task => {
+        task.canUpdate = false;
+      })
       this.tasks = tasks;
     })
   }
@@ -30,5 +33,19 @@ export class TaskComponent implements OnInit {
     this._tasks.removeTask(_id).subscribe(a => {
       this.tasks.splice(i, 1);
     })
+  }
+
+  editTask(_id: string) {
+    let { description } = this.tasks.find(task => task._id === _id);
+    this._tasks.updateTask(_id, description).subscribe(_task => {
+      let localTask = this.tasks.find(task => task._id === _id);
+      localTask.canUpdate = false;
+    },
+    )
+  }
+
+  displayUpdateBtn(_id: string) {
+    let task = this.tasks.find(task => task._id === _id);
+    task.canUpdate = true;
   }
 }

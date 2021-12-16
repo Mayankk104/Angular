@@ -5,8 +5,11 @@
     </div>
     <ul *ngIf="tasks" class="tasks">
         <li *ngFor="let task of tasks; let i = index">
-            <p>{{ task.description }}</p>
-            <button (click)="removeTask(task._id, i)">delete</button>
+            <textarea class="tasks__description" (keyup)="displayUpdateBtn(task._id)" [(ngModel)]="task.description">{{ task.description }}</textarea>
+            <span>
+                <button (click)="removeTask(task._id, i)" class="btn">delete</button>
+                <button (click)="editTask(task._id)" class="btn btn__update" [ngClass]="[!task.canUpdate ? 'canupdate' : '']">update</button>
+            </span>
         </li>
     </ul>
 </div>
